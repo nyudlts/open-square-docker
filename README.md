@@ -14,4 +14,5 @@ Once the submodules are initialized, you can run the docker image.
 $ docker-compose up -d
 ```
 
-Apache Solr will be available at http://localhost:8983/solr/open-square-docker
+Apache Solr will be available at http://localhost:8983/solr/open-square-metadata
+
