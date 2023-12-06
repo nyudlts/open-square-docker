@@ -1,0 +1,4 @@
+[submodule "solr_conf_open-square-metadata"]
+    url = https://github.com/nyudlts/solr_conf_open-square-metadata.git
+    path = src/solr/open-square-metadata
+    branch = stagediscovery.dlib.nyu.edu

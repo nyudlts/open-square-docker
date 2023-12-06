@@ -1,0 +1,15 @@
+version: "3.7"
+
+services:
+  open_square_metadata:
+    image: solr:7.7.3
+    ports:
+     - 8983:8983
+    networks:
+      - open_square_metadata_network
+    volumes:
+      - ./src/solr/open-square-metadata/conf:/conf/open-square-metadata
+      - ./src/solr/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+
+networks:
+  open_square_metadata_network:
