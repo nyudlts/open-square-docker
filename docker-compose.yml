@@ -8,7 +8,7 @@ services:
     networks:
       - open_square_metadata_network
     volumes:
-      - ./src/solr/open-square-metadata/conf:/conf/open-square-metadata
+      - ./src/solr/open-square-metadata:/conf/open-square-metadata
       - ./src/solr/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
 
 networks:
