@@ -16,3 +16,17 @@ docker-compose up -d
 
 Apache Solr will be available at http://localhost:8983/solr/open-square-metadata
 
+## Add documents to Solr
+
+1) Clone the metadata repository
+
+```bash
+cd src
+gh repo clone NYULibraries/dlts-epub-metadata
+```
+
+2) Run the ingest script
+
+```bash
+cd scripts/ingest-documents
+```
