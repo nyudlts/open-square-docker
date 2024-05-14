@@ -28,5 +28,6 @@ gh repo clone NYULibraries/dlts-epub-metadata
 2) Run the ingest script
 
 ```bash
-cd scripts/ingest-documents
+cd src/scripts/ingest-documents
+deno run --allow-net --allow-read index.ts
 ```
