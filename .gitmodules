@@ -1,4 +1,8 @@
-[submodule "open-square-metadata"]
-	path = src/solr/open-square-metadata
-	url = git@github.com:nyudlts/solr_conf_open-square-metadata.git
-	branch = stagediscovery.dlib.nyu.edu
+[submodule "src/solr/discovery-solr-core-confs"]
+	path = src/solr/discovery-solr-core-confs
+	url = git@github.com:nyudlts/discovery-solr-core-confs.git
+	branch = opensquare-v1
+[submodule "src/dlts-epub-metadata"]
+	path = src/dlts-epub-metadata
+	url = git@github.com:NYULibraries/dlts-epub-metadata.git
+	branch = main
