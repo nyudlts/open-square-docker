@@ -21,14 +21,23 @@ It brings in the solr schema repository as a submodule as a means to keep separa
 |     ^
 |     |
 | +----------------------
+| | dlts-viewer-api
+| | (middleware api)
+| +----------------------
+|     ^
+|     |
+| +----------------------
+| | supadu
+| | nyu press
+| | (source data)
+| +----------------------
+|
+|
+| +----------------------
 | | dlst-epub-metadata
 | | git submodule
 | | (source data might be out of date)
-| +----------------------
-| +----------------------
-| | dlts-viewer-api
-| | web server
-| | (source data)
+| | no longer used as source of data
 | +----------------------
 +---------------------------------------
 ```
