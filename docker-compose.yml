@@ -1,15 +1,42 @@
-version: "3.7"
+networks:
+  opensquare_network:
+    driver: bridge # default, could be left out
 
 services:
-  open_square_metadata:
+  solr:
     image: solr:7.7.3
+    # use this to match production:
+    # image: solr:6.6
+    # there are no arm64 images for solr6.6.6
+    platform: linux/amd64
     ports:
-     - 8983:8983
+      - 8983:8983
     networks:
-      - open_square_metadata_network
+      - opensquare_network
     volumes:
-      - ./src/solr/open-square-metadata:/conf/open-square-metadata
+      # v0 core
+      - ./src/solr/discovery-solr-core-confs/open-square-metadata:/conf/open-square-metadata
+      # v1 core
+      - ./src/solr/discovery-solr-core-confs/open-square-metadata-v1:/conf/open-square-metadata-v1
+      # startup scripts
       - ./src/solr/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+    # healthcheck:
+    #   test: ["CMD", "curl", "http://localhost:8983/solr/admin/cores?action=STATUS"]
+    #   interval: 1m30s
+    #   timeout: 30s
+    #   retries: 5
+    #   start_period: 45s
 
-networks:
-  open_square_metadata_network:
+  # data_loader:
+  #   image: denoland/deno:latest
+  #   volumes:
+  #     - ./src/scripts:/app
+  #     - ./src/dlts-epub-metadata:/app/dlts-epub-metadata
+  #   working_dir: /app
+  #   depends_on:
+  #     solr:
+  #       condition: service_healthy
+  #   networks:
+  #     - opensquare_network
+  #   command: ["run", "--allow-net", "--allow-read", "ingest-document/index.ts"]
+
