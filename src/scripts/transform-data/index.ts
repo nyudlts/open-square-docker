@@ -8,17 +8,13 @@ type Contributor = {
 /**
  * helper function that takes a flat contributors list
  * and returns it ordered and in an easy way to render as an Array for react to map over.
- * matching Hugo logic for naming here:
- * https://github.com/NYULibraries/dlts-open-square/commit/601e7987c2440e182c747c294fe8a924341fe923#diff-13693fcffa921ef48b3fadcc2c6983d0820d73e7e989a48d97584e7e4904ccbcR4
- * param {String} contribs flattened JSON array of contributors in individual objects
- * @param {Contributor} contribs flattened JSON array of contributors in individual objects
+ * Matching Hugo logic for naming here: https://github.com/NYULibraries/dlts-open-square/commit/601e7987c2440e182c747c294fe8a924341fe923#diff-13693fcffa921ef48b3fadcc2c6983d0820d73e7e989a48d97584e7e4904ccbcR4
  * this array is necessary since multiple contributor types have to exist in separa DOM items, but we don't need to do it with two items
  * NOTE: solr can support multivalued items (array insertion), this might be able to live as an array
  * [ ] JSON.stringify the array ?? is this searchable??
  * [>] or separate each result with a <br> or symbol unicode \u2028
- * @returns {String} Single String of the pre-formed contributor sentences sorted by type, sorted by order, and separate types linebroken
  */
-export function buildContributorSentence(contribs : Contributor[]){
+export function buildContributorSentence(contribs : Contributor[]): string[] {
 // function sortContributorsIntoRoleBuckets(contribs) {
     // export function unflattenContributors(contribs) {
     // 1. transform contributors from flat string to JSON object
